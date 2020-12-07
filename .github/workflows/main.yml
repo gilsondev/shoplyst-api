@@ -10,7 +10,7 @@ on:
     branches: [ main ]
 
 env:
-  SECRET_KEY: s3cret_key
+  SECRET_KEY: ${{secrets.SECRET_KEY}}
 
 jobs:
   build:
@@ -32,3 +32,9 @@ jobs:
     - name: Test with pytest
       run: |
         pipenv run pytest
+    - name: Deploy Application
+      uses: akhileshns/heroku-deploy@v3.6.8
+      with:
+        heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+        heroku_app_name: "shoplyst"
+        heroku_email: "me@gilsondev.in"
