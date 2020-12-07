@@ -12,6 +12,9 @@ dj-database-url = "*"
 python-decouple = "*"
 
 [dev-packages]
+pytest = "*"
+pytest-django = "*"
+pytest-cov = "*"
 
 [requires]
 python_version = "3.8"
